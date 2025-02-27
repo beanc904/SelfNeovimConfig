@@ -28,7 +28,6 @@ end
 -- 让clangd识别CMake项目
 -- 进入项目后进行如下操作
 -- cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=on
--- cp build/compile_commands.json .
 lspconfig.clangd.setup {}
 
 -- java的代码提示配置
