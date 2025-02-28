@@ -30,6 +30,11 @@ end
 -- cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=on
 lspconfig.clangd.setup {}
 
+lspconfig.cmake.setup({
+    cmd = { "cmake-language-server" },
+    filetypes = { "cmake" },
+})
+
 -- java的代码提示配置
 -- local workspace_dir = vim.fn.stdpath('data') .. "/jdtls_workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 -- lspconfig.jdtls.setup {
