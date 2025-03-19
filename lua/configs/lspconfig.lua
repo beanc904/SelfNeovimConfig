@@ -29,7 +29,7 @@ end
 -- 进入项目后进行如下操作
 -- cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=on
 lspconfig.clangd.setup({
-    cmd = { "clangd", "--background-index" }, -- 后台索引支持跨文件跳转
+    cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=never" }, -- 后台索引支持跨文件跳转
     filetypes = { "c", "cpp", "objc", "objcpp" },
     root_dir = require('lspconfig.util').root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
 })
