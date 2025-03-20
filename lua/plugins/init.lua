@@ -13,32 +13,32 @@ return {
     end,
   },
 
-    {
-    	"nvim-treesitter/nvim-treesitter",
-    	opts = {
-    		ensure_installed = {
-    			"vim", "lua", "vimdoc", "html", "css", "c", "cpp", "python", "java", "bash"
-    		},
-    	},
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc", "html", "css", "c", "cpp", "python", "java", "bash"
+      },
     },
+  },
 
-    -- 重复点击插件
-    {
-        "tpope/vim-repeat",
-        lazy = false,
-    },
+  -- 重复点击插件
+  {
+    "tpope/vim-repeat",
+    lazy = false,
+  },
 
-    -- 光标移动插件
-    {
-        "xiyaowong/fast-cursor-move.nvim",
-        lazy = false,
-    },
+  -- 光标移动插件
+  {
+    "xiyaowong/fast-cursor-move.nvim",
+    lazy = false,
+  },
 
-    {
-        "folke/which-key.nvim",
-        config = function ()
-            require("which-key").setup {}
-        end,
-        lazy = false,
-    },
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {}
+    end,
+    lazy = false,
+  },
 }

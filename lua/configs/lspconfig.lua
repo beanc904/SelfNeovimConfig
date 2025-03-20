@@ -29,14 +29,19 @@ end
 -- 进入项目后进行如下操作
 -- cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=on
 lspconfig.clangd.setup({
-    cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=never" }, -- 后台索引支持跨文件跳转
-    filetypes = { "c", "cpp", "objc", "objcpp" },
-    root_dir = require('lspconfig.util').root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+  cmd = { "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion-decorators",
+    "--completion-style=detailed",
+    "--fallback-style=Google" },     -- 后台索引支持跨文件跳转
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_dir = require('lspconfig.util').root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
 })
 
 lspconfig.cmake.setup({
-    cmd = { "cmake-language-server" },
-    filetypes = { "cmake" },
+  cmd = { "cmake-language-server" },
+  filetypes = { "cmake" },
 })
 
 -- java的代码提示配置
@@ -69,18 +74,18 @@ lspconfig.pyright.setup {}
 
 -- rust的代码提示
 lspconfig.rust_analyzer.setup({
-    settings = {
-        ["rust_analyzer"] = {
-            cargo = {allFeatures = true},
-            checkOnSave = {command = "clippy"},
-        }
+  settings = {
+    ["rust_analyzer"] = {
+      cargo = { allFeatures = true },
+      checkOnSave = { command = "clippy" },
     }
+  }
 })
 
 
 
 -- 使用 ts_ls 配置 TypeScript LSP
-lspconfig.ts_ls.setup{
+lspconfig.ts_ls.setup {
   on_attach = function(client, bufnr)
     -- 在编辑时实时更新诊断
     vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
