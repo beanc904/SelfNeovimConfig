@@ -62,6 +62,46 @@ rm -rf ~/.local/share/nvim
 
 **注意：** 在使用`nvim`内部相关功能时需保持外部依赖软件的正确配置。
 
+### 外部依赖软件的配置
+
+#### `lazygit`
+
+官方[配置文档](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md)
+
+全局配置文件的默认路径:
+
+- Linux: `~/.config/lazygit/config.yml`
+- MacOS: `~/Library/Application Support/lazygit/config.yml`
+- Windows: `%LOCALAPPDATA%\lazygit\config.yml`(default locaion, but it will also be found in `%APPDATA%\lazygit\config.yml`)
+
+**OneDark Theme**:
+```yml
+gui:
+  theme:
+    activeBorderColor:
+      - '#61afef'
+      - bold
+    inactiveBorderColor:
+      - '#5c6370'
+    optionsTextColor:   # 底部字体颜色
+      - '#8aadf4'
+    selectedLineBgColor:
+      - '#363a4f'
+    cherryPickedCommitBgColor:
+      - '#494d64'
+    cherryPickedCommitFgColor:
+      - '#8bd5ca'
+    unstagedChangesColor:
+      - '#ed8796'
+    defaultFgColor:
+      - '#cad3f5'
+    searchingActiveBorderColor:
+      - '#eed49f'
+
+    authorColors:
+      '*': '#b7bdf8'
+```
+
 ## 鸣谢
 
 - [Neovim](https://github.com/neovim/neovim)
