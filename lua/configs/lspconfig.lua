@@ -23,6 +23,28 @@ end
 --   capabilities = nvlsp.capabilities,
 -- }
 
+-- vim.diagnostic配置
+vim.diagnostic.config({
+  virtual_text = true,     -- 显示虚拟文本
+  update_in_insert = true, -- 实时更新诊断
+  float = {                -- 浮动窗口配置
+    border = "rounded", -- 圆角边框
+    focusable = true, -- 允许聚焦悬浮窗
+    source = true, -- 多来源时显示诊断工具名称
+    header = "🐞 Diagnostics:", -- 自定义标题
+    format = function(diagnostic)
+      -- 按等级添加图标
+      local icons = {
+        [vim.diagnostic.severity.ERROR] = " ",
+        [vim.diagnostic.severity.WARN] = " ",
+        [vim.diagnostic.severity.INFO] = " ",
+        [vim.diagnostic.severity.HINT] = " "
+      }
+      return icons[diagnostic.severity] .. diagnostic.message
+    end
+  }
+})
+
 -- cpp的代码提示配置
 --
 -- 让clangd识别CMake项目
@@ -82,20 +104,3 @@ lspconfig.rust_analyzer.setup({
   }
 })
 
-
-
--- 使用 ts_ls 配置 TypeScript LSP
-lspconfig.ts_ls.setup {
-  on_attach = function(client, bufnr)
-    -- 在编辑时实时更新诊断
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-      -- 自动显示诊断
-      vim.diagnostic.setqflist(result.diagnostics)
-    end
-
-    -- 启用实时诊断
-    vim.cmd('autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics()')
-  end
-}
--- 启用 CursorHold 事件触发的诊断显示
-vim.cmd('autocmd CursorHold * lua vim.diagnostic.open_float()')

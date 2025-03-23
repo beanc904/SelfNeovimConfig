@@ -10,6 +10,6 @@ return {
     opts = {
       -- configurations go here
     },
-    lazy = false,
+    lazy = true,
   },
 }

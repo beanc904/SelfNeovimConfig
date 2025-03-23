@@ -59,6 +59,7 @@ rm -rf ~/.local/share/nvim
     - `pyright`: `brew / npm / bin`
 - 额外插件:
     - `lazygit`: `brew / bin`
+    - `ripgrep`: `brew / apt / bin`
 
 **注意：** 在使用`nvim`内部相关功能时需保持外部依赖软件的正确配置。
 
@@ -101,6 +102,10 @@ gui:
     authorColors:
       '*': '#b7bdf8'
 ```
+
+#### `ripgrep`
+
+`Telescope live grep`项目级全局查找工具外部依赖。
 
 ## 鸣谢
 
