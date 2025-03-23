@@ -18,8 +18,8 @@ return {
         -- 新建快捷键
         vim.keymap.set("n", "<leader>of", "<cmd>Lspsaga finder<CR>", { desc = "Lspsaga Open Finder" }),
         vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Lspsaga Code Action" }),
-        vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Lspsaga Diagnostic Jump Next" }),
-        vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Lspsaga Diagnostic Jump Prev" })
+        vim.keymap.set("n", "<leader>dj", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Lspsaga Diagnostic Jump Next" }),
+        vim.keymap.set("n", "<leader>dk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Lspsaga Diagnostic Jump Prev" })
       })
     end,
     dependencies = {
