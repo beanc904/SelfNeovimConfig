@@ -6,14 +6,14 @@ return {
       require('lspsaga').setup({
         -- 先清除预先设定的插件信息
         vim.keymap.del("n", "gd"),
-        vim.keymap.del("n", "gD"),
+        -- vim.keymap.del("n", "gD"),
         vim.keymap.del("n", "<leader>rn"),
 
         -- 重新映射快捷键
-        vim.keymap.set("n", "gd", "<cmd>Lspsaga finder def<CR>",
+        vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>",
           { noremap = true, silent = true, desc = "Lspsaga Goto Definition" }),
-        vim.keymap.set("n", "gD", "<cmd>Lspsaga finder decl<CR>",
-          { noremap = true, silent = true, desc = "Lspsaga Goto Declaration" }),
+        -- vim.keymap.set("n", "gD", "<cmd>Lspsaga finder decl<CR>",
+        --   { noremap = true, silent = true, desc = "Lspsaga Goto Declaration" }),
         vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "Lspsaga Rename Symbol" }),
         -- 新建快捷键
         vim.keymap.set("n", "<leader>of", "<cmd>Lspsaga finder<CR>", { desc = "Lspsaga Open Finder" }),
