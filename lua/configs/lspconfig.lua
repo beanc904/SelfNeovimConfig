@@ -54,7 +54,8 @@ lspconfig.clangd.setup({
   cmd = { "clangd",
     "--background-index",
     "--clang-tidy",
-    "--header-insertion-decorators",
+    "--header-insertion=never",
+    "--header-insertion-decorators=1",
     "--completion-style=detailed",
     "--fallback-style=Google" },     -- 后台索引支持跨文件跳转
   filetypes = { "c", "cpp", "objc", "objcpp" },
