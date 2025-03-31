@@ -61,7 +61,9 @@ rm -rf ~/.local/share/nvim
     - `lazygit`: `brew / bin`
     - `ripgrep`: `brew / apt / bin`
 
-**注意：** 在使用`nvim`内部相关功能时需保持外部依赖软件的正确配置。
+**注意：** 
+在使用`nvim`内部相关功能时需保持外部依赖软件的正确配置。
+目前采用`Mason`进行语言服务的自动化管理。
 
 ### 外部依赖软件的配置
 

@@ -13,7 +13,7 @@ return {
       root_dir = jdtls.setup.find_root({ "pom.xml", "build.gradle", ".git" }) or vim.fn.getcwd(),
       settings = {
         java = {
-          home = "/usr/lib/jvm/jdk-21.0.4-oracle-x64",
+          home = "/usr/lib/jvm/default-java/",
           eclipse = { downloadSources = true },
           configuration = { updateBuildConfiguration = "interactive" },
           maven = { downloadSources = true },
