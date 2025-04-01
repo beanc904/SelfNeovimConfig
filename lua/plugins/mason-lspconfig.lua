@@ -8,7 +8,14 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_install = { "clangd", "jdtls", "pyright", "rust_analyzer" },
+        ensure_installed = {
+          "clangd",
+          "jdtls",
+          "cmake",
+          "pyright",
+          "rust_analyzer",
+          "lua_ls"
+        },
         automatic_installation = true,
       })
     end
