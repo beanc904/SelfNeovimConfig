@@ -15,4 +15,9 @@ M.base46 = {
   -- },
 }
 
+-- 字体显示设置
+-- "<font sytle>:<size>"
+-- "Hack Nerd Font:h11"
+vim.opt.guifont = "Hack Nerd Font"
+
 return M
