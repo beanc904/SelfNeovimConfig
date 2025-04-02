@@ -14,7 +14,8 @@ return {
           "cmake",
           "pyright",
           "rust_analyzer",
-          "lua_ls"
+          "lua_ls",
+          "markdown_oxide"
         },
         automatic_installation = true,
       })

@@ -73,3 +73,11 @@ lspconfig.rust_analyzer.setup({
   }
 })
 
+lspconfig.markdown_oxide.setup({
+  filetypes = { "markdown", "md" },
+  settings = {
+    markdown_oxide = {
+      diagnostics = true, -- 开启 Markdown 语法检查
+    },
+  },
+})
