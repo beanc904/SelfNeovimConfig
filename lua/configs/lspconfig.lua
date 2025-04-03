@@ -62,6 +62,8 @@ lspconfig.cmake.setup({
   filetypes = { "cmake" },
 })
 
+lspconfig.jdtls.setup {}
+
 lspconfig.pyright.setup {}
 
 lspconfig.rust_analyzer.setup({
@@ -73,7 +75,7 @@ lspconfig.rust_analyzer.setup({
   }
 })
 
-lspconfig.markdown_oxide.setup({
+lspconfig.marksman.setup({
   filetypes = { "markdown", "md" },
   settings = {
     markdown_oxide = {

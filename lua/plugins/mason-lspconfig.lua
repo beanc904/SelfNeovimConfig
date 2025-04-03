@@ -15,7 +15,7 @@ return {
           "pyright",
           "rust_analyzer",
           "lua_ls",
-          "markdown_oxide"
+          "marksman"
         },
         automatic_installation = true,
       })
