@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    ft = { 'c', 'cpp' },
+    -- ft = { 'c', 'cpp' },
     dependencies = {
       "rcarriga/nvim-dap-ui",            -- UI 界面
       "theHamsta/nvim-dap-virtual-text", -- 变量悬浮提示
@@ -10,9 +10,21 @@ return {
       "williamboman/mason.nvim",         -- Mason 依赖
       "nvim-neotest/nvim-nio",
     },
-    config = function()
-      -- 加载 dapconfig 配置信息
-      require("configs.dapconfig")
-    end
+    -- config = function()
+    --   -- 加载 dapconfig 配置信息
+    --   require("configs.dapconfig")
+    -- end
+    keys = {
+      {
+        "<leader>da",
+        function ()
+          require("configs.dapconfig")
+          vim.notify("完成 DAP 启动！")
+          vim.keymap.del("n", "<leader>da");
+        end,
+        desc = "启动DAP",
+      },
+    },
+    lazy = true,
   }
 }

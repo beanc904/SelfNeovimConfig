@@ -10,7 +10,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      "jay-babu/mason-nvim-dap.nvim"
+      -- "jay-babu/mason-nvim-dap.nvim"
     },
     config = function()
       require "configs.lspconfig"
