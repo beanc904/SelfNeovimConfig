@@ -83,3 +83,5 @@ lspconfig.marksman.setup({
     },
   },
 })
+
+lspconfig.bashls.setup {}

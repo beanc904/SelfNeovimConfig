@@ -10,6 +10,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
+      "jay-babu/mason-nvim-dap.nvim"
     },
     config = function()
       require "configs.lspconfig"
@@ -20,7 +21,16 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim", "lua", "vimdoc", "html", "css", "c", "cpp", "python", "java", "bash"
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "c",
+        "cpp",
+        "python",
+        "java",
+        "bash"
       },
     },
   },
