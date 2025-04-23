@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "onedark",
+  theme = "chadracula-evondev",
   transparency = false,   -- set transparent background
 
   -- hl_override = {

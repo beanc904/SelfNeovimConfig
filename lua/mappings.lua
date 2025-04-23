@@ -19,6 +19,7 @@ end, { silent = true, noremap = true, desc = "Toggle Relative Number" })
 map("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to Definition" })
 map("n", "gD", vim.lsp.buf.declaration, { noremap = true, silent = true, desc = "Go to Declaration" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+-- 定义格式化快捷键
 map("v", "<leader>f", vim.lsp.buf.format, { noremap = true, silent = true, desc = "Format code block" })
 
 -- nvim-tree.lua文件树的刷新快捷键绑定
@@ -31,8 +32,10 @@ map(modes, "<C-u>", function() neoscroll.ctrl_u({ duration = 150 }) end, { desc 
 map(modes, "<C-d>", function() neoscroll.ctrl_d({ duration = 150 }) end, { desc = "Neoscroll Cursor Down" })
 map(modes, "<C-b>", function() neoscroll.ctrl_b({ duration = 350 }) end, { desc = "Neoscroll Cursor Up Faster" })
 map(modes, "<C-f>", function() neoscroll.ctrl_f({ duration = 350 }) end, { desc = "Neoscroll Cursor Down Faster" })
-map(modes, "<C-y>", function() neoscroll.scroll(-0.1, { move_cursor=false; duration = 100 }) end, { desc = "Neoscroll Screen Down" })
-map(modes, "<C-e>", function() neoscroll.scroll(0.1, { move_cursor=false; duration = 100 }) end, { desc = "Neoscroll Screen Up" })
+map(modes, "<C-y>", function() neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 }) end,
+  { desc = "Neoscroll Screen Down" })
+map(modes, "<C-e>", function() neoscroll.scroll(0.1, { move_cursor = false, duration = 100 }) end,
+  { desc = "Neoscroll Screen Up" })
 map(modes, "zt", function() neoscroll.zt({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Top" })
 map(modes, "zz", function() neoscroll.zz({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Middle" })
 map(modes, "zb", function() neoscroll.zb({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Bottom" })
