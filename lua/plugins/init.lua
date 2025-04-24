@@ -46,12 +46,4 @@ return {
     "xiyaowong/fast-cursor-move.nvim",
     lazy = false,
   },
-
-  {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {}
-    end,
-    lazy = false,
-  },
 }

@@ -69,18 +69,25 @@ lspconfig.pyright.setup {}
 lspconfig.rust_analyzer.setup({
   on_attach = function(client, bufnr)
     -- 定义格式化快捷键
-    vim.keymap.del("v", "<leader>f")
     vim.keymap.set("n", "<leader>F", function()
       vim.lsp.buf.format({ async = false })
-    end, { noremap = true, silent = true, desc = "Format code block" })
+    end, { noremap = true, silent = true, desc = "Format rust block" })
   end,
 
   settings = {
     ["rust_analyzer"] = {
       cargo = { allFeatures = true },
       checkOnSave = { command = "clippy" },
-    }
-  }
+      -- 优化实时诊断
+      diagnostics = {
+        enable = true,
+        enableExperimental = true,
+        disable = {},
+        -- 诊断延迟配置
+        debounce = 100, -- 默认为500ms
+      },
+    },
+  },
 })
 
 lspconfig.marksman.setup({
