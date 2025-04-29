@@ -19,20 +19,29 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "c",
-        "cpp",
-        "python",
-        "java",
-        "bash"
-      },
-    },
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "vim", "lua", "vimdoc", "html", "css", "c", "cpp", "python", "java",
+          "bash", "rust",
+        },
+        auto_install = true,
+        -- 增量选择
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<CR>",
+            node_incremental = "<CR>",
+            node_decremental = "<BS>",
+            scope_incremental = "<TAB>",
+          },
+        },
+      })
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.wo.foldlevel = 99
+      vim.wo.foldenable = true
+    end,
   },
 
   -- 重复点击插件
