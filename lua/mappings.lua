@@ -9,16 +9,13 @@ map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
--- 取消原先<leader>rn的绑定
+-- <leader>rn 的重新绑定
 vim.keymap.del("n", "<leader>rn")
--- 完成<leader>rN的重新绑定
 map("n", "<leader>rN", function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { silent = true, noremap = true, desc = "Toggle Relative Number" })
--- 定义跳转快捷键配置
-map("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to Definition" })
-map("n", "gD", vim.lsp.buf.declaration, { noremap = true, silent = true, desc = "Go to Declaration" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
 -- 定义块格式化快捷键
 map("v", "<leader>ff", vim.lsp.buf.format, { noremap = true, silent = true, desc = "V-LINE format block" })
 
@@ -57,3 +54,11 @@ end, { desc = "Show warnings only" })
 map("n", "<leader>i", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
 end, { desc = "Enable inlay hints" })
+
+-- Lspsaga 快捷键绑定
+map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "悬浮文档" })
+map("n", "<leader>of", "<cmd>Lspsaga finder<CR>", { desc = "引用访达" })
+map("n", "<leader>ol", "<cmd>Lspsaga outline<CR>", { desc = "显示大纲" })
+map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "代码建议" })
+map("n", "<leader>dj", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "后向诊断跳转" })
+map("n", "<leader>dk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "前向诊断跳转" })
