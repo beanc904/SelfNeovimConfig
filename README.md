@@ -86,6 +86,12 @@ rm -rf ~/.local/share/nvim
 alias nvim="setsid neovide"
 ```
 macOS思路类似，将`Neovide`软件包中的二进制文件，链接至`/usr/local/bin/`下。并使用来自`brew`的`util-linux`工具包中的`setsid`完成非终端阻塞图形线程的创建。
+同时，为避免出现 macOS 新建图形线程时产生的警告垃圾，可采用如下`Neovide`启动器，将输出信息转流至空。
+```bash
+#!/bin/bash
+
+setsid /Applications/Neovide.app/Contents/MacOS/neovide "$@" > /dev/null 2>&1 &
+```
 
 #### `lazygit`
 
