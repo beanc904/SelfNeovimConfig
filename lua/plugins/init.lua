@@ -21,6 +21,10 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("nvim-treesitter.configs").setup({
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
         ensure_installed = {
           "vim", "lua", "vimdoc", "html", "css", "c", "cpp", "python", "java",
           "bash", "rust",
