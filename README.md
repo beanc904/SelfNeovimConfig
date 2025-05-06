@@ -51,6 +51,9 @@ rm -rf ~/.local/share/nvim
 
 ## 外部依赖软件
 
+- 核心编辑器: `Neovim`
+    - `brew / bin`
+- 图形渲染工具: `Neovide`
 - `lsp`:
     - `clangd`: `brew / apt / bin`
     - `jdtls`: `brew / bin`
@@ -66,6 +69,23 @@ rm -rf ~/.local/share/nvim
 目前采用`Mason`进行语言服务的自动化管理。
 
 ### 外部依赖软件的配置
+
+#### 核心编辑器`Neovim`
+
+**注意：**
+推荐使用`brew`或从源码编译安装，否则会出现插件组建安装不齐全等问题，尤其是`Ubuntu`发行版的包管理器。
+
+#### 图形渲染工具`Neovide`
+
+由于软件未被上传包管理器，需移步官方[仓库](https://github.com/neovide/neovide)下载。
+
+其中，由于`Neovide`软件的启动会导致终端对话的阻塞，将提供如下思路以新建图形线程。
+
+将`Neovide`二进制文件移动到用户管理的二进制环境目录，如：`/usr/local/bin/neovide`。接着，于个人配置文件中编写如下替换。
+```.zshrc
+alias nvim="setsid neovide"
+```
+macOS思路类似，将`Neovide`软件包中的二进制文件，链接至`/usr/local/bin/`下。并使用来自`brew`的`util-linux`工具包中的`setsid`完成非终端阻塞图形线程的创建。
 
 #### `lazygit`
 
