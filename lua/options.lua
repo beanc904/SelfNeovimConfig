@@ -17,4 +17,4 @@ vim.opt.whichwrap = "b,s"
 -- 字体显示设置
 -- "<font sytle>:<size>"
 -- "Hack Nerd Font:h11"
-vim.opt.guifont = "UbuntuMono Nerd Font:h19"
+vim.opt.guifont = "UbuntuMono Nerd Font"

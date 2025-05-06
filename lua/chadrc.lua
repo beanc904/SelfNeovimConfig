@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
   theme = "chadracula-evondev",
-  transparency = false,   -- set transparent background
+  transparency = false,
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -62,6 +62,20 @@ M.ui = {
 
 M.nvdash = {
   load_on_startup = true,
+  header = {
+    "                            ",
+    "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
+    "   ▄▀███▄     ▄██ █████▀    ",
+    "   ██▄▀███▄   ███           ",
+    "   ███  ▀███▄ ███           ",
+    "   ███    ▀██ ███           ",
+    "   ███      ▀ ███           ",
+    "   ▀██ █████▄▀█▀▄██████▄    ",
+    "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀   ",
+    "                            ",
+    "  Configed by CoffeeBean  ",
+    "                            ",
+  },
 }
 
 return M
