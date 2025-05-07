@@ -5,16 +5,21 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
-
--- 个性化配置
 -- vim.opt.tabstop = 4
 -- vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
--- 禁用行末跳转第二行
 vim.opt.whichwrap = "b,s"
-
--- 字体显示设置
 -- "<font sytle>:<size>"
--- "Hack Nerd Font:h11"
 vim.opt.guifont = "UbuntuMono Nerd Font:h18"
+
+if vim.g.neovide then
+  -- Put anything you want to configure Neovide here
+  vim.g.neovide_opacity = 0.9
+
+  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_cursor_particle_lifetime = 0.4
+  vim.g.neovide_cursor_vfx_particle_highlight_lifetime = 0.2
+  vim.g.neovide_cursor_vfx_particle_density = 10.0
+  vim.g.neovide_cursor_vfx_opacity = 180.0
+  vim.g.neovide_cursor_vfx_particle_speed = 10.0
+end
