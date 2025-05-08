@@ -62,3 +62,17 @@ map("n", "<leader>ol", "<cmd>Lspsaga outline<CR>", { desc = "显示大纲" })
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "代码建议" })
 map("n", "<leader>dj", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "后向诊断跳转" })
 map("n", "<leader>dk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "前向诊断跳转" })
+
+if vim.g.neovide then
+  vim.g.neovide_opacity = vim.g.neovide_opacity or 1.0
+  -- 调整透明度的函数
+  local function change_opacity(delta)
+    local new_opacity = vim.g.neovide_opacity + delta
+    new_opacity = math.max(0.0, math.min(1.0, new_opacity)) -- 限制范围在 0 ~ 1
+    vim.g.neovide_opacity = new_opacity
+    print(string.format("Neovide opacity: %.2f", new_opacity))
+  end
+
+  map("n", "<C-=>", function() change_opacity(0.05) end, { desc = "Increase Neovide opacity" })
+  map("n", "<C-->", function() change_opacity(-0.05) end, { desc = "Decrease Neovide opacity" })
+end

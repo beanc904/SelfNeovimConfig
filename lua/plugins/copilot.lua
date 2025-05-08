@@ -9,10 +9,15 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<C-l>",
-          next = "<M-]>",
-          prev = "<M-[>",
+          -- accept = "<C-l>",
+          -- next = "<M-]>",
+          -- prev = "<M-[>",
           dismiss = "<C-]>",
+
+          -- blink.cmp test modify
+          accept = "<Tab>",
+          next = "<C-Right>",
+          prev = "<C-Left>",
         },
       },
       panel = {

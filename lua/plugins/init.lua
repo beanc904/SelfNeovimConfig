@@ -48,6 +48,8 @@ return {
     end,
   },
 
+  { import = "nvchad.blink.lazyspec" },
+
   -- 重复点击插件
   {
     "tpope/vim-repeat",
