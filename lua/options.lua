@@ -15,8 +15,11 @@ vim.opt.guifont = "UbuntuMono Nerd Font:h18"
 if vim.g.neovide then
   -- Put anything you want to configure Neovide here
   vim.g.neovide_opacity = 0.9
+  vim.g.neovide_noraml_opacity = 0.9
 
-  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_refresh_rate = 120
+
+  vim.g.neovide_cursor_vfx_mode = { "pixiedust" }
   vim.g.neovide_cursor_particle_lifetime = 0.4
   vim.g.neovide_cursor_vfx_particle_highlight_lifetime = 0.2
   vim.g.neovide_cursor_vfx_particle_density = 10.0
