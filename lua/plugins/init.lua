@@ -27,7 +27,7 @@ return {
         },
         ensure_installed = {
           "vim", "lua", "vimdoc", "html", "css", "c", "cpp", "python", "java",
-          "bash", "rust",
+          "bash", "rust", "markdown",
         },
         auto_install = true,
         -- 增量选择
@@ -47,8 +47,6 @@ return {
       vim.wo.foldenable = true
     end,
   },
-
-  { import = "nvchad.blink.lazyspec" },
 
   -- 重复点击插件
   {

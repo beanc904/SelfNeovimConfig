@@ -9,15 +9,10 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          -- accept = "<C-l>",
-          -- next = "<M-]>",
-          -- prev = "<M-[>",
-          dismiss = "<C-]>",
-
-          -- blink.cmp test modify
-          accept = "<Tab>",
-          next = "<C-Right>",
-          prev = "<C-Left>",
+          accept = "<C-l>",
+          next = "<C-]>",
+          prev = "<C-[>",
+          dismiss = "<M-]>",
         },
       },
       panel = {
@@ -26,7 +21,7 @@ return {
         keymap = {
           jump_prev = "[[",
           jump_next = "]]",
-          accept = "<CR>",
+          accept = "<C-l>",
           refresh = "gr",
           open = "<M-CR>",
         },

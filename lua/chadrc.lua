@@ -16,10 +16,6 @@ M.base46 = {
 }
 
 M.ui = {
-  cmp = {
-    style = "flat_light",
-  },
-
   telescope = { style = "bordered" },
 
   statusline = {

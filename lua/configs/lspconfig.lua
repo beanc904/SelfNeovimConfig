@@ -1,13 +1,10 @@
--- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
--- EXAMPLE
-local servers = { "html", "cssls" }
-local nvlsp = require "nvchad.configs.lspconfig"
-
 -- lsps with default config
+local servers = { "html", "cssls", "pyright", "bashls" }
+local nvlsp = require "nvchad.configs.lspconfig"
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
@@ -62,18 +59,7 @@ lspconfig.cmake.setup({
   filetypes = { "cmake" },
 })
 
-lspconfig.jdtls.setup {}
-
-lspconfig.pyright.setup {}
-
 lspconfig.rust_analyzer.setup({
-  -- on_attach = function(client, bufnr)
-  --   -- 定义格式化快捷键
-  --   vim.keymap.set("n", "<leader>F", function()
-  --     vim.lsp.buf.format({ async = false })
-  --   end, { noremap = true, silent = true, desc = "Format rust block" })
-  -- end,
-
   settings = {
     ["rust_analyzer"] = {
       cargo = { allFeatures = true },
@@ -98,5 +84,3 @@ lspconfig.marksman.setup({
     },
   },
 })
-
-lspconfig.bashls.setup {}
