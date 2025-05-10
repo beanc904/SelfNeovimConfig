@@ -9,6 +9,8 @@ map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+
+
 -- <leader>rn 的重新绑定
 vim.keymap.del("n", "<leader>rn")
 map("n", "<leader>rN", function()
@@ -16,11 +18,17 @@ map("n", "<leader>rN", function()
 end, { silent = true, noremap = true, desc = "Toggle Relative Number" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
+
+
 -- 定义块格式化快捷键
 map("v", "<leader>ff", vim.lsp.buf.format, { noremap = true, silent = true, desc = "V-LINE format block" })
 
+
+
 -- nvim-tree.lua文件树的刷新快捷键绑定
 map("n", "<leader>rf", "<cmd>NvimTreeRefresh<CR>", { noremap = true, silent = true, desc = "Refresh Files Tree" })
+
+
 
 -- 自定义neoscroll描述文本
 local neoscroll = require('neoscroll')
@@ -37,6 +45,8 @@ map(modes, "zt", function() neoscroll.zt({ half_win_duration = 150 }) end, { des
 map(modes, "zz", function() neoscroll.zz({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Middle" })
 map(modes, "zb", function() neoscroll.zb({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Bottom" })
 
+
+
 -- 显示诊断悬浮窗
 map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
 map("n", "<leader>de", function()
@@ -50,18 +60,14 @@ map("n", "<leader>dw", function()
   })
 end, { desc = "Show warnings only" })
 
+
+
 -- 启用 inlay hints
 map("n", "<leader>i", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
 end, { desc = "Enable inlay hints" })
 
--- Lspsaga 快捷键绑定
-map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "悬浮文档" })
-map("n", "<leader>of", "<cmd>Lspsaga finder<CR>", { desc = "引用访达" })
-map("n", "<leader>ol", "<cmd>Lspsaga outline<CR>", { desc = "显示大纲" })
-map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "代码建议" })
-map("n", "<leader>dj", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "后向诊断跳转" })
-map("n", "<leader>dk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "前向诊断跳转" })
+
 
 if vim.g.neovide then
   vim.g.neovide_opacity = vim.g.neovide_opacity or 1.0
@@ -76,3 +82,11 @@ if vim.g.neovide then
   map("n", "<C-=>", function() change_opacity(0.05) end, { desc = "Increase Neovide opacity" })
   map("n", "<C-->", function() change_opacity(-0.05) end, { desc = "Decrease Neovide opacity" })
 end
+
+
+
+-- Telescope 查找定义 / 引用 / 实现 / 类型定义
+map("n", "<leader>tr", "<cmd>Telescope lsp_references<CR>", { desc = "Telescope LSP 引用" })
+-- map("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", { desc = "Telescope LSP 定义" })
+-- map("n", "<leader>ti", "<cmd>Telescope lsp_implementations<CR>", { desc = "Telescope LSP 实现" })
+-- map("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Telescope LSP 类型定义" })

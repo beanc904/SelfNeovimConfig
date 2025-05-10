@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- lsps with default config
-local servers = { "html", "cssls", "pyright", "bashls" }
+local servers = { "html", "cssls", "pyright", "bashls", "cmake", "markdown_oxide" }
 local nvlsp = require "nvchad.configs.lspconfig"
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -22,9 +22,9 @@ end
 
 -- 实时诊断信息显示配置
 vim.diagnostic.config({
-  virtual_text = true,     -- 显示虚拟文本
+  virtual_text = true, -- 显示虚拟文本
   update_in_insert = true, -- 实时更新诊断
-  float = {                -- 浮动窗口配置
+  float = { -- 浮动窗口配置
     border = "rounded", -- 圆角边框
     focusable = true, -- 允许聚焦悬浮窗
     source = true, -- 多来源时显示诊断工具名称
@@ -42,6 +42,8 @@ vim.diagnostic.config({
   }
 })
 
+
+
 lspconfig.clangd.setup({
   cmd = { "clangd",
     "--background-index",
@@ -49,15 +51,12 @@ lspconfig.clangd.setup({
     "--header-insertion=never",
     "--header-insertion-decorators=1",
     "--completion-style=detailed",
-    "--fallback-style=Google" },     -- 后台索引支持跨文件跳转
+    "--fallback-style=Google" }, -- 后台索引支持跨文件跳转
   filetypes = { "c", "cpp", "objc", "objcpp" },
   root_dir = require('lspconfig.util').root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
 })
 
-lspconfig.cmake.setup({
-  cmd = { "cmake-language-server" },
-  filetypes = { "cmake" },
-})
+
 
 lspconfig.rust_analyzer.setup({
   settings = {
@@ -72,15 +71,6 @@ lspconfig.rust_analyzer.setup({
         -- 诊断延迟配置
         debounce = 100, -- 默认为500ms
       },
-    },
-  },
-})
-
-lspconfig.marksman.setup({
-  filetypes = { "markdown", "md" },
-  settings = {
-    markdown_oxide = {
-      diagnostics = true, -- 开启 Markdown 语法检查
     },
   },
 })

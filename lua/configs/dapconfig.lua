@@ -1,9 +1,6 @@
--- 常规配置
--- 加载 nvim-dap-ui
 require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
 
--- 绑定按键
 local dap = require("dap")
 local dapui = require("dapui")
 
@@ -41,6 +38,10 @@ dap.adapters.codelldb = {
     args = { "--port", "${port}" },
   }
 }
+
+
+
+-- 语言配置
 dap.configurations.cpp = {
   {
     name = "Launch",
@@ -53,4 +54,7 @@ dap.configurations.cpp = {
     stopOnEntry = false,
   }
 }
+
+
+
 dap.configurations.c = dap.configurations.cpp
