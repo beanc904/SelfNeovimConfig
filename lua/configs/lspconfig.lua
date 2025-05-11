@@ -41,7 +41,11 @@ vim.diagnostic.config({
     end
   }
 })
-
+vim.keymap.set('n', 'K', function()
+  vim.lsp.buf.hover({
+    border = 'rounded',
+  })
+end, { desc = 'LSP hover_doc' })
 
 
 lspconfig.clangd.setup({
