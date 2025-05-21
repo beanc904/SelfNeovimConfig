@@ -26,3 +26,12 @@ if vim.g.neovide then
   vim.g.neovide_cursor_vfx_opacity = 180.0
   vim.g.neovide_cursor_vfx_particle_speed = 10.0
 end
+
+
+-- auto save
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  pattern = "*.rs",
+  callback = function()
+    vim.cmd("silent! write")
+  end,
+})

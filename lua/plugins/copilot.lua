@@ -10,9 +10,9 @@ return {
         debounce = 75,
         keymap = {
           accept = "<C-l>",
-          next = "<C-]>",
-          prev = "<C-[>",
-          dismiss = "<M-]>",
+          next = "<M-j>",
+          prev = "<M-k>",
+          dismiss = "<M-r>",
         },
       },
       panel = {
