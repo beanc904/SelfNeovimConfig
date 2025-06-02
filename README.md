@@ -21,6 +21,20 @@
 
 关于各语言服务的[安装方式](#外部依赖软件)。
 
+#### 语言服务协议配置示例
+
+- `pyright`
+    ```json
+    {
+      "pythonVersion": "3.9",
+      "venvPath": "/Users/coffeebean/.miniconda3/envs",
+      "venv": "pyqt5-env",
+      "typeCheckingMode": "basic",
+      "reportMissingImports": false,
+      "reportAttributeAccessIssue": false,
+    }
+    ```
+
 ## 使用指南
 
 目前，该配置仅编写`unix`系操作系统使用指南。其他系列的`nvim`配置文件夹不同，但该库配置文件不变，不便提供操作指南，可自行下载配置。
@@ -91,6 +105,11 @@ macOS思路类似，将`Neovide`软件包中的二进制文件，链接至`/usr/
 #!/bin/bash
 
 setsid /Applications/Neovide.app/Contents/MacOS/neovide "$@" > /dev/null 2>&1 &
+```
+
+关于外观配置，macOS 于配置文件中编写如下替换：
+```toml
+frame = "transparent"
 ```
 
 #### `lazygit`
