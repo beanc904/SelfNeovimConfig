@@ -7,7 +7,7 @@ return {
     },
     lazy = true,
     keys = {
-      { "<leader>Bm", "<cmd>Telescope bookmarks<CR>", desc = "打开浏览器书签" }
+      { "<leader>tb", "<cmd>Telescope bookmarks<CR>", desc = "打开浏览器书签" }
     },
     config = function()
       require("browser_bookmarks").setup({

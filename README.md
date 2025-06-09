@@ -52,7 +52,9 @@ rm -rf ~/.config/nvim/*
 git clone https://github.com/beanc904/SelfNeovimConfig.git ~/.config/nvim
 ```
 
-**注意：** 该操作会清除原先的所有个人`nvim`的配置信息。建议对原先`nvim`配置文件进行备份。
+> [!note] 注意
+> 该操作会清除原先的所有个人`nvim`的配置信息。
+> 建议对原先`nvim`配置文件进行备份。
 
 ### 卸载
 
@@ -78,16 +80,16 @@ rm -rf ~/.local/share/nvim
     - `lazygit`: `brew / bin`
     - `ripgrep`: `brew / apt / bin`
 
-**注意：** 
-在使用`nvim`内部相关功能时需保持外部依赖软件的正确配置。
-目前采用`Mason`进行语言服务的自动化管理。
+> [!note] 注意
+> 在使用`nvim`内部相关功能时需保持外部依赖软件的正确配置。
+> 目前采用`Mason`进行语言服务的自动化管理。
 
 ### 外部依赖软件的配置
 
 #### 核心编辑器`Neovim`
 
-**注意：**
-推荐使用`brew`或从源码编译安装，否则会出现插件组建安装不齐全等问题，尤其是`Ubuntu`发行版的包管理器。
+> [!warning] 警告
+> 推荐使用`brew`或从源码编译安装，否则会出现插件组建安装不齐全等问题，尤其是`Ubuntu`发行版的包管理器。
 
 #### 图形渲染工具`Neovide`
 
@@ -152,7 +154,7 @@ gui:
 
 #### `ripgrep`
 
-`Telescope live grep`项目级全局查找工具外部依赖。
+`Telescope live grep`项目级全局文本关键词查找工具。
 
 ## 鸣谢
 
