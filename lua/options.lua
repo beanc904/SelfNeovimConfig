@@ -28,10 +28,10 @@ if vim.g.neovide then
 end
 
 
--- auto save
-vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-  pattern = "*.rs",
-  callback = function()
-    vim.cmd("silent! write")
-  end,
-})
+-- -- auto save
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+--   pattern = "*.rs",
+--   callback = function()
+--     vim.cmd("silent! write")
+--   end,
+-- })

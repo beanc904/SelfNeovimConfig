@@ -21,7 +21,11 @@ M.ui = {
   statusline = {
     theme = "minimal",
     separator_style = "round",
-    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "encoding", "eol", "lsp", "cwd", "cursor" },
+    order = {
+      "mode", "file", "git", "%=",
+      "lsp_msg", "%=", "diagnostics", "encoding",
+      "eol", "lsp", "cwd", "cursor"
+    },
     modules = {
       encoding = function()
         if vim.list_contains({ "help" }, vim.bo.filetype) then
@@ -31,7 +35,8 @@ M.ui = {
         if encoding == "" then
           return ""
         end
-        return " %*" .. encoding .. " " -- "%*" is used to clear highlight group (use default highlight)
+        -- "%*" is used to clear highlight group (use default highlight)
+        return " %*" .. encoding .. " "
       end,
       eol = function()
         if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "terminal" then
@@ -50,7 +55,8 @@ M.ui = {
         elseif file_format == "mac" then
           eol = "CR"
         end
-        return " %*" .. eol .. " " -- "%*" is used to clear highlight group (use default highlight)
+        -- "%*" is used to clear highlight group (use default highlight)
+        return " %*" .. eol .. " "
       end,
     },
   },

@@ -3,7 +3,10 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- lsps with default config
-local servers = { "html", "cssls", "pyright", "bashls", "cmake", "markdown_oxide" }
+local servers = {
+  "html", "cssls", "pyright",
+  "bashls", "cmake", "marksman"
+}
 local nvlsp = require "nvchad.configs.lspconfig"
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -49,15 +52,21 @@ end, { desc = 'LSP hover_doc' })
 
 
 lspconfig.clangd.setup({
-  cmd = { "clangd",
+  cmd = {
+    "clangd",
     "--background-index",
     "--clang-tidy",
     "--header-insertion=never",
     "--header-insertion-decorators=1",
     "--completion-style=detailed",
-    "--fallback-style=Google" }, -- 后台索引支持跨文件跳转
+    "--fallback-style=Google"
+  }, -- 后台索引支持跨文件跳转
   filetypes = { "c", "cpp", "objc", "objcpp" },
-  root_dir = require('lspconfig.util').root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+  root_dir = require('lspconfig.util').root_pattern(
+    "compile_commands.json",
+    "compile_flags.txt",
+    ".git"
+  ),
 })
 
 
