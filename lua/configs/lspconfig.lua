@@ -1,27 +1,12 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-
 -- lsps with default config
 local servers = {
   "html", "cssls", "pyright",
-  "bashls", "cmake", "marksman"
+  "bashls", "cmake", "marksman",
+  "rust_analyzer",
 }
-local nvlsp = require "nvchad.configs.lspconfig"
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
-
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+vim.lsp.enable(servers)
 
 -- 实时诊断信息显示配置
 vim.diagnostic.config({
@@ -51,7 +36,7 @@ vim.keymap.set('n', 'K', function()
 end, { desc = 'LSP hover_doc' })
 
 
-lspconfig.clangd.setup({
+vim.lsp.config('clangd', {
   cmd = {
     "clangd",
     "--background-index",
@@ -60,30 +45,10 @@ lspconfig.clangd.setup({
     "--header-insertion-decorators=1",
     "--completion-style=detailed",
     "--fallback-style=Google"
-  }, -- 后台索引支持跨文件跳转
-  filetypes = { "c", "cpp", "objc", "objcpp" },
-  root_dir = require('lspconfig.util').root_pattern(
-    "compile_commands.json",
-    "compile_flags.txt",
-    ".git"
-  ),
+  },
 })
 
 
-
-lspconfig.rust_analyzer.setup({
-  settings = {
-    ["rust_analyzer"] = {
-      cargo = { allFeatures = true },
-      checkOnSave = { command = "clippy" },
-      -- 优化实时诊断
-      diagnostics = {
-        enable = true,
-        enableExperimental = true,
-        disable = {},
-        -- 诊断延迟配置
-        debounce = 100, -- 默认为500ms
-      },
-    },
-  },
+vim.lsp.enable({
+  "clangd",
 })
