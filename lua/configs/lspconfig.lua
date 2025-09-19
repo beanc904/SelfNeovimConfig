@@ -4,7 +4,6 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = {
   "html", "cssls", "pyright",
   "bashls", "cmake", "marksman",
-  "rust_analyzer",
 }
 vim.lsp.enable(servers)
 
@@ -48,7 +47,17 @@ vim.lsp.config('clangd', {
   },
 })
 
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ["rust_analyzer"] = {
+      check = {
+        command = "clippy"
+      },
+    }
+  }
+})
+
 
 vim.lsp.enable({
-  "clangd",
+  "clangd", "rust_analyzer",
 })
