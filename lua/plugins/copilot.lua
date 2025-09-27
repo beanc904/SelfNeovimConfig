@@ -21,7 +21,7 @@ return {
         keymap = {
           jump_prev = "[[",
           jump_next = "]]",
-          accept = "<C-l>",
+          accept = "<M-l>",
           refresh = "gr",
           open = "<M-CR>",
         },
