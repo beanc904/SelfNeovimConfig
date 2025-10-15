@@ -108,4 +108,16 @@ endif()
     rep(1),
     rep(1),
   })),
+
+  -- set(PROJECT_SOURCES {})
+  s("qtadds",
+    fmt([[
+${{SRC_DIR}}/{}.cc
+${{INCLUDE_DIR}}/{}.h
+${{UI_DIR}}/{}.ui
+]], {
+      i(1, "classname"),
+      rep(1),
+      rep(1),
+    })),
 })
