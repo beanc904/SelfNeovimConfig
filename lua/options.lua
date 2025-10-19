@@ -12,6 +12,8 @@ vim.opt.whichwrap = "b,s"
 -- "<font sytle>:<size>"
 vim.opt.guifont = "JetBrainsMono Nerd Font:h16"
 
+vim.g.copilot_enabled = false
+
 if vim.g.neovide then
   -- Put anything you want to configure Neovide here
   vim.g.neovide_opacity = 0.90

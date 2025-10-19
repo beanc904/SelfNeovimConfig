@@ -16,7 +16,9 @@ return {
           "rust_analyzer",
           "lua_ls",
           "markdown_oxide",
-          "bashls"
+          "marksman",
+          "bashls",
+          "mesonlsp",
         },
         automatic_installation = true,
         automatic_enable = false,
