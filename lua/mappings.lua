@@ -14,7 +14,7 @@ map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move 
 
 
 
--- <leader>rn 的重新绑定
+-- re-bind <leader>rn
 vim.keymap.del("n", "<leader>rn")
 map("n", "<leader>rN", function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
@@ -23,17 +23,15 @@ map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
 
 
--- 定义块格式化快捷键
 map("v", "<leader>ff", vim.lsp.buf.format, { noremap = true, silent = true, desc = "V-LINE format block" })
 
 
 
--- nvim-tree.lua文件树的刷新快捷键绑定
+-- refresh nvim-tree.lua
 map("n", "<leader>rf", "<cmd>NvimTreeRefresh<CR>", { noremap = true, silent = true, desc = "Refresh Files Tree" })
 
 
 
--- 自定义neoscroll描述文本
 local neoscroll = require('neoscroll')
 local modes = { 'n', 'v', 'x' }
 map(modes, "<C-u>", function() neoscroll.ctrl_u({ duration = 150 }) end, { desc = "Neoscroll Cursor Up" })
@@ -50,7 +48,6 @@ map(modes, "zb", function() neoscroll.zb({ half_win_duration = 150 }) end, { des
 
 
 
--- 显示诊断悬浮窗
 map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
 map("n", "<leader>de", function()
   vim.diagnostic.open_float({
@@ -65,7 +62,7 @@ end, { desc = "Show warnings only" })
 
 
 
--- 启用 inlay hints
+-- bind inlay hints
 map("n", "<leader>i", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
 end, { desc = "Enable inlay hints" })
@@ -112,8 +109,8 @@ end
 
 
 
--- Telescope 查找定义 / 引用 / 实现 / 类型定义
-map("n", "<leader>tr", "<cmd>Telescope lsp_references<CR>", { desc = "Telescope LSP 引用" })
--- map("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", { desc = "Telescope LSP 定义" })
--- map("n", "<leader>ti", "<cmd>Telescope lsp_implementations<CR>", { desc = "Telescope LSP 实现" })
--- map("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Telescope LSP 类型定义" })
+-- Telescope jump to definitions / references / implementations / type definitions
+map("n", "<leader>tr", "<cmd>Telescope lsp_references<CR>", { desc = "Telescope LSP references" })
+-- map("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", { desc = "Telescope LSP definitions" })
+-- map("n", "<leader>ti", "<cmd>Telescope lsp_implementations<CR>", { desc = "Telescope LSP implementations" })
+-- map("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Telescope LSP definitions" })

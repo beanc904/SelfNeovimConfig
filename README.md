@@ -1,40 +1,56 @@
 # Self Neovim Config
 
-## 使用指南
+A personal **Neovim** configuration built on top of **NvChad**, designed for a clean, fast, and modern development experience on Linux and macOS.
+It provides rich features including LSP support, code formatting, autocompletion, syntax highlighting, and Neovide UI customization.
 
-目前，该配置仅编写`unix`系操作系统使用指南。其他系列的`nvim`配置文件夹不同，但该库配置文件不变，不便提供操作指南，可自行下载配置。
+---
 
-### 初次使用
+## 🚀 Usage Guide
+
+> Currently, only Unix-based systems (Linux/macOS) are documented.
+> Windows users may adapt paths manually if needed.
+
+### 🧩 First Installation
 
 ```bash
 git clone https://github.com/beanc904/SelfNeovimConfig.git ~/.config/nvim --depth=1 && nvim
 ```
 
-### 覆盖使用
+This command clones the configuration and launches Neovim to install all plugins automatically.
+
+---
+
+### ♻️ Reinstall / Overwrite Existing Config
 
 ```bash
 rm -rf ~/.config/nvim/*
 git clone https://github.com/beanc904/SelfNeovimConfig.git ~/.config/nvim --depth=1
 ```
 
-> [!IMPORTANT]
-> 该操作会清除原先的所有个人`nvim`的配置信息。
-> 建议对原先`nvim`配置文件进行备份。
+> [!WARNING]
+> This will **remove all your existing Neovim configurations**.
+> Please make a backup of `~/.config/nvim` beforehand.
 
-### 卸载
+---
+
+### 🧹 Uninstallation
+
+To remove all related data completely:
 
 ```bash
-# unix
+# Unix
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 ```
 
-## lsp项目初始化
+---
 
-### `pyright`
+## 🧠 LSP Setup Example
 
-将以下内容写入 `pyrightconfig.json` ，并根据实际项目信息修改相关配置项。可以使用 LuaSnip 插件中配置的 `pyconf` 片段快捷编写。其他相关配置项，可参考[其官网](https://docs.basedpyright.com/v1.20.0/configuration/config-files/)。
+### Python (`pyright`)
+
+Create a file named `pyrightconfig.json` in your project root:
 
 ```json
 {
@@ -43,28 +59,38 @@ rm -rf ~/.local/share/nvim
   "venv": "pyqt5-env",
   "typeCheckingMode": "basic",
   "reportMissingImports": false,
-  "reportAttributeAccessIssue": false,
+  "reportAttributeAccessIssue": false
 }
 ```
 
-## Vide外观配置
+You can quickly insert this template using the `pyconf` snippet provided by **LuaSnip**.
+For detailed configuration, see the [Based Pyright documentation](https://docs.basedpyright.com/v1.20.0/configuration/config-files/).
 
-关于外观配置，可于配置文件中编写如下：
+---
+
+## 🎨 Neovide Appearance
+
+Example `neovide.toml` configuration:
+
 ```toml
 # macOS
 frame = "transparent"
 
 # Linux
-frame="none"
+frame = "none"
 
 [font]
 normal = ["JetBrainsMono Nerd Font", "Noto Sans CJK SC"]
 size = 18
 ```
 
-## 鸣谢
+---
 
-- [Neovim](https://github.com/neovim/neovim)
-- [Neovide](https://github.com/neovide/neovide)
-- [NvChad](https://github.com/NvChad/NvChad)
-  - [All Plugins](./lua/plugins)
+## ❤️ Acknowledgments
+
+* [Neovim](https://github.com/neovim/neovim)
+* [Neovide](https://github.com/neovide/neovide)
+* [NvChad](https://github.com/NvChad/NvChad)
+
+  * [All Plugins](./lua/plugins)
+

@@ -20,20 +20,19 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
-      -- 设置 Markdown 一级到六级标题的颜色和样式
+      -- set Markdown color and style of H1~6 title
       local heading_colors = {
-        [1] = "#89B4FA", -- H1 蓝色
-        [2] = "#FAB387", -- H2 橙色
-        [3] = "#A6E3A1", -- H3 绿色
-        [4] = "#94E2D5", -- H4 青色
-        [5] = "#CBA6F7", -- H5 紫色
-        [6] = "#B4BEFE", -- H6 浅蓝
+        [1] = "#89B4FA", -- H1 blue
+        [2] = "#FAB387", -- H2 origin
+        [3] = "#A6E3A1", -- H3 green
+        [4] = "#94E2D5", -- H4 cyan
+        [5] = "#CBA6F7", -- H5 purple
+        [6] = "#B4BEFE", -- H6 light blue
       }
       for level, color in pairs(heading_colors) do
         vim.api.nvim_set_hl(0, ("@markup.heading.%d.markdown"):format(level), {
           fg = color,
           bold = true,
-          -- clear 链接防止被覆盖
           default = false,
         })
       end
@@ -48,7 +47,6 @@ return {
           "bash", "rust", "markdown",
         },
         auto_install = true,
-        -- 增量选择
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -66,13 +64,11 @@ return {
     end,
   },
 
-  -- 重复点击插件
   {
     "tpope/vim-repeat",
     lazy = false,
   },
 
-  -- 光标移动插件
   {
     "xiyaowong/fast-cursor-move.nvim",
     lazy = false,

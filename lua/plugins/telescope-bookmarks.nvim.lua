@@ -7,7 +7,7 @@ return {
     },
     lazy = true,
     keys = {
-      { "<leader>tb", "<cmd>Telescope bookmarks<CR>", desc = "打开浏览器书签" }
+      { "<leader>tb", "<cmd>Telescope bookmarks<CR>", desc = "Open Browser Bookmarks" }
     },
     config = function()
       require("browser_bookmarks").setup({
@@ -17,7 +17,6 @@ return {
         -- config_dir = os.getenv("HOME") .. "/AppData/Roaming/Mozilla/Firefox",
       })
 
-      -- 可选：设置 Telescope 映射
       require("telescope").load_extension("bookmarks")
     end,
   },

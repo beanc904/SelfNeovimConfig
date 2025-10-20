@@ -6,7 +6,7 @@ local rep = require("luasnip.extras").rep
 
 ls.add_snippets("cmake", {
   s("qtinit", fmt([[
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.18)
 
 project({} VERSION 0.1 LANGUAGES CXX)
 
@@ -109,7 +109,6 @@ endif()
     rep(1),
   })),
 
-  -- set(PROJECT_SOURCES {})
   s("qtadds",
     fmt([[
 ${{SRC_DIR}}/{}.cc

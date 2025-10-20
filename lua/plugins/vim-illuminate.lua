@@ -1,5 +1,5 @@
 return {
-  -- neovim的关键词关联高亮插件
+  -- neovim keywords highlighting
   {
     "RRethy/vim-illuminate",
     config = function()
@@ -59,7 +59,7 @@ return {
         case_insensitive_regex = false,
       })
 
-      -- 配置高亮样式
+      -- configure highlighting style
       vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#3a3d41", fg = "#ffb86c", underline = true, bold = true })
       vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#3a3d41", fg = "#ffb86c", underline = true, bold = true })
       vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#3a3d41", fg = "#ffb86c", underline = true, bold = true })
