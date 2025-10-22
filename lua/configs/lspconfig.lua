@@ -2,12 +2,16 @@ require("nvchad.configs.lspconfig").defaults()
 
 -- lsps with default config
 local servers = {
-  "html", "cssls", "pyright",
-  "bashls", "cmake", "marksman",
+  "html",
+  "cssls",
+  "pyright",
+  "bashls",
+  "cmake",
+  "marksman",
 }
 vim.lsp.enable(servers)
 
-vim.diagnostic.config({
+vim.diagnostic.config {
   virtual_text = true,
   update_in_insert = true,
   float = {
@@ -20,20 +24,19 @@ vim.diagnostic.config({
         [vim.diagnostic.severity.ERROR] = " ",
         [vim.diagnostic.severity.WARN] = " ",
         [vim.diagnostic.severity.INFO] = " ",
-        [vim.diagnostic.severity.HINT] = " "
+        [vim.diagnostic.severity.HINT] = " ",
       }
       return icons[diagnostic.severity] .. diagnostic.message
-    end
+    end,
+  },
+}
+vim.keymap.set("n", "K", function()
+  vim.lsp.buf.hover {
+    border = "rounded",
   }
-})
-vim.keymap.set('n', 'K', function()
-  vim.lsp.buf.hover({
-    border = 'rounded',
-  })
-end, { desc = 'LSP Hover Doc' })
+end, { desc = "LSP Hover Doc" })
 
-
-vim.lsp.config('clangd', {
+vim.lsp.config("clangd", {
   cmd = {
     "clangd",
     "--background-index",
@@ -41,21 +44,21 @@ vim.lsp.config('clangd', {
     "--header-insertion=never",
     "--header-insertion-decorators=1",
     "--completion-style=detailed",
-    "--fallback-style=Google"
+    "--fallback-style=Google",
   },
 })
 
-vim.lsp.config('rust_analyzer', {
+vim.lsp.config("rust_analyzer", {
   settings = {
     ["rust_analyzer"] = {
       check = {
-        command = "clippy"
+        command = "clippy",
       },
-    }
-  }
+    },
+  },
 })
 
-
-vim.lsp.enable({
-  "clangd", "rust_analyzer",
-})
+vim.lsp.enable {
+  "clangd",
+  "rust_analyzer",
+}

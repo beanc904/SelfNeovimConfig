@@ -7,67 +7,95 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move selected line down" })
-map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move selected line up" })
+map(
+  "v",
+  "J",
+  ":m '>+1<CR>gv=gv",
+  { noremap = true, silent = true, desc = "Move selected line down" }
+)
+map(
+  "v",
+  "K",
+  ":m '<-2<CR>gv=gv",
+  { noremap = true, silent = true, desc = "Move selected line up" }
+)
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
-
 
 -- re-bind <leader>rn
 vim.keymap.del("n", "<leader>rn")
 map("n", "<leader>rN", function()
+  ---@diagnostic disable-next-line: undefined-field
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { silent = true, noremap = true, desc = "Toggle Relative Number" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
-
-
-map("v", "<leader>ff", vim.lsp.buf.format, { noremap = true, silent = true, desc = "V-LINE format block" })
-
-
+map(
+  "v",
+  "<leader>ff",
+  vim.lsp.buf.format,
+  { noremap = true, silent = true, desc = "V-LINE format block" }
+)
 
 -- refresh nvim-tree.lua
-map("n", "<leader>rf", "<cmd>NvimTreeRefresh<CR>", { noremap = true, silent = true, desc = "Refresh Files Tree" })
+map(
+  "n",
+  "<leader>rf",
+  "<cmd>NvimTreeRefresh<CR>",
+  { noremap = true, silent = true, desc = "Refresh Files Tree" }
+)
 
+local neoscroll = require "neoscroll"
+local modes = { "n", "v", "x" }
+map(modes, "<C-u>", function()
+  neoscroll.ctrl_u { duration = 150 }
+end, { desc = "Neoscroll Cursor Up" })
+map(modes, "<C-d>", function()
+  neoscroll.ctrl_d { duration = 150 }
+end, { desc = "Neoscroll Cursor Down" })
+map(modes, "<C-b>", function()
+  neoscroll.ctrl_b { duration = 350 }
+end, { desc = "Neoscroll Cursor Up Faster" })
+map(modes, "<C-f>", function()
+  neoscroll.ctrl_f { duration = 350 }
+end, { desc = "Neoscroll Cursor Down Faster" })
+map(modes, "<C-y>", function()
+  neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 })
+end, { desc = "Neoscroll Screen Down" })
+map(modes, "<C-e>", function()
+  neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
+end, { desc = "Neoscroll Screen Up" })
+map(modes, "zt", function()
+  neoscroll.zt { half_win_duration = 150 }
+end, { desc = "Neoscroll Cursor Top" })
+map(modes, "zz", function()
+  neoscroll.zz { half_win_duration = 150 }
+end, { desc = "Neoscroll Cursor Middle" })
+map(modes, "zb", function()
+  neoscroll.zb { half_win_duration = 150 }
+end, { desc = "Neoscroll Cursor Bottom" })
 
-
-local neoscroll = require('neoscroll')
-local modes = { 'n', 'v', 'x' }
-map(modes, "<C-u>", function() neoscroll.ctrl_u({ duration = 150 }) end, { desc = "Neoscroll Cursor Up" })
-map(modes, "<C-d>", function() neoscroll.ctrl_d({ duration = 150 }) end, { desc = "Neoscroll Cursor Down" })
-map(modes, "<C-b>", function() neoscroll.ctrl_b({ duration = 350 }) end, { desc = "Neoscroll Cursor Up Faster" })
-map(modes, "<C-f>", function() neoscroll.ctrl_f({ duration = 350 }) end, { desc = "Neoscroll Cursor Down Faster" })
-map(modes, "<C-y>", function() neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 }) end,
-  { desc = "Neoscroll Screen Down" })
-map(modes, "<C-e>", function() neoscroll.scroll(0.1, { move_cursor = false, duration = 100 }) end,
-  { desc = "Neoscroll Screen Up" })
-map(modes, "zt", function() neoscroll.zt({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Top" })
-map(modes, "zz", function() neoscroll.zz({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Middle" })
-map(modes, "zb", function() neoscroll.zb({ half_win_duration = 150 }) end, { desc = "Neoscroll Cursor Bottom" })
-
-
-
-map("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
+map(
+  "n",
+  "<leader>dd",
+  vim.diagnostic.open_float,
+  { desc = "Open diagnostic float" }
+)
 map("n", "<leader>de", function()
-  vim.diagnostic.open_float({
-    severity = vim.diagnostic.severity.ERROR
-  })
+  vim.diagnostic.open_float {
+    severity = vim.diagnostic.severity.ERROR,
+  }
 end, { desc = "Show errors only" })
 map("n", "<leader>dw", function()
-  vim.diagnostic.open_float({
-    severity = vim.diagnostic.severity.WARN
-  })
+  vim.diagnostic.open_float {
+    severity = vim.diagnostic.severity.WARN,
+  }
 end, { desc = "Show warnings only" })
-
-
 
 -- bind inlay hints
 map("n", "<leader>i", function()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
 end, { desc = "Enable inlay hints" })
-
-
 
 if vim.g.neovide then
   -- adjust the transparency of the background
@@ -103,14 +131,18 @@ if vim.g.neovide then
     change_scale(-0.1)
   end, { desc = "Decrease Neovide font size" })
   map("n", "<C-0>", function()
-    vim.g.neovide_scale_factor = 1.0; print("Neovide font scale reset to 1.0")
+    vim.g.neovide_scale_factor = 1.0
+    print "Neovide font scale reset to 1.0"
   end, { desc = "Reset Neovide font size" })
 end
 
-
-
 -- Telescope jump to definitions / references / implementations / type definitions
-map("n", "<leader>tr", "<cmd>Telescope lsp_references<CR>", { desc = "Telescope LSP references" })
+map(
+  "n",
+  "<leader>tr",
+  "<cmd>Telescope lsp_references<CR>",
+  { desc = "Telescope LSP references" }
+)
 -- map("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", { desc = "Telescope LSP definitions" })
 -- map("n", "<leader>ti", "<cmd>Telescope lsp_implementations<CR>", { desc = "Telescope LSP implementations" })
 -- map("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Telescope LSP definitions" })

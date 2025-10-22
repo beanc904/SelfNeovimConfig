@@ -7,17 +7,21 @@ return {
     },
     lazy = true,
     keys = {
-      { "<leader>tb", "<cmd>Telescope bookmarks<CR>", desc = "Open Browser Bookmarks" }
+      {
+        "<leader>tb",
+        "<cmd>Telescope bookmarks<CR>",
+        desc = "Open Browser Bookmarks",
+      },
     },
     config = function()
-      require("browser_bookmarks").setup({
+      require("browser_bookmarks").setup {
         selected_browser = "firefox",
         -- config_dir = os.getenv("HOME") .. "/.mozilla/firefox",
         -- config_dir = os.getenv("HOME") .. "/Library/Application Support/Firefox",
         -- config_dir = os.getenv("HOME") .. "/AppData/Roaming/Mozilla/Firefox",
-      })
+      }
 
-      require("telescope").load_extension("bookmarks")
+      require("telescope").load_extension "bookmarks"
     end,
   },
 }

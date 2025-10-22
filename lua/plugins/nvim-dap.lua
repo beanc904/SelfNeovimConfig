@@ -16,14 +16,14 @@ return {
     keys = {
       {
         "<leader>da",
-        function ()
-          require("configs.dapconfig")
-          vim.notify("Launche DAP successfully!")
-          vim.keymap.del("n", "<leader>da");
+        function()
+          require "configs.dapconfig"
+          vim.notify "Launche DAP successfully!"
+          vim.keymap.del("n", "<leader>da")
         end,
         desc = "Launche DAP",
       },
     },
     lazy = true,
-  }
+  },
 }

@@ -1,8 +1,11 @@
 return {
-  'MeanderingProgrammer/render-markdown.nvim',
+  "MeanderingProgrammer/render-markdown.nvim",
   -- cmd = { 'RenderMarkdown' },
-  ft = { 'markdown', 'md', 'mdx' },
-  dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+  ft = { "markdown", "md", "mdx" },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons",
+  },
   config = function()
     -- define foreground color (font color)
     vim.api.nvim_set_hl(0, "RenderMarkdownH1", { fg = "#89B4FA", bold = true })
@@ -19,7 +22,7 @@ return {
     vim.api.nvim_set_hl(0, "RenderMarkdownH4Bg", { bg = "#122222" })
     vim.api.nvim_set_hl(0, "RenderMarkdownH5Bg", { bg = "#1F1A26" })
     vim.api.nvim_set_hl(0, "RenderMarkdownH6Bg", { bg = "#1D1C2A" })
-    require('render-markdown').setup({
+    require("render-markdown").setup {
       render_modes = true,
       completions = {
         lsp = { enabled = true },
@@ -28,6 +31,6 @@ return {
       heading = {
         border = true,
       },
-    })
+    }
   end,
 }

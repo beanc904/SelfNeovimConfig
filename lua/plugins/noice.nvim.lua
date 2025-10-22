@@ -27,13 +27,19 @@ return {
   config = function(_, opts)
     require("noice").setup(opts)
 
-    require("notify").setup({
+    require("notify").setup {
       background_colour = "#0F1419", -- Ayu Dark background color
-    })
+    }
 
     vim.keymap.del("n", "<leader>n") -- remove default keymap
-    vim.keymap.set("n", "<leader>nd", function() require("noice").cmd("dismiss") end, { desc = "Dismiss Noice" })
-    vim.keymap.set("n", "<leader>nl", function() require("noice").cmd("last") end, { desc = "Noice Last Message" })
-    vim.keymap.set("n", "<leader>nh", function() require("noice").cmd("history") end, { desc = "Noice History" })
-  end
+    vim.keymap.set("n", "<leader>nd", function()
+      require("noice").cmd "dismiss"
+    end, { desc = "Dismiss Noice" })
+    vim.keymap.set("n", "<leader>nl", function()
+      require("noice").cmd "last"
+    end, { desc = "Noice Last Message" })
+    vim.keymap.set("n", "<leader>nh", function()
+      require("noice").cmd "history"
+    end, { desc = "Noice History" })
+  end,
 }

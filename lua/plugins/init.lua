@@ -37,14 +37,24 @@ return {
         })
       end
 
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter.configs").setup {
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
         },
         ensure_installed = {
-          "vim", "lua", "vimdoc", "html", "css", "c", "cpp", "python", "java",
-          "bash", "rust", "markdown",
+          "vim",
+          "lua",
+          "vimdoc",
+          "html",
+          "css",
+          "c",
+          "cpp",
+          "python",
+          "java",
+          "bash",
+          "rust",
+          "markdown",
         },
         auto_install = true,
         incremental_selection = {
@@ -56,9 +66,9 @@ return {
             scope_incremental = "<TAB>",
           },
         },
-      })
-      vim.wo.foldmethod = 'expr'
-      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      }
+      vim.wo.foldmethod = "expr"
+      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
       vim.wo.foldlevel = 99
       vim.wo.foldenable = true
     end,

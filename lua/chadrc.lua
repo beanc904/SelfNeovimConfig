@@ -10,8 +10,8 @@ M.base46 = {
   transparency = true,
 
   hl_override = {
-  	Comment = { italic = true },
-  	["@comment"] = { italic = true },
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
   },
 }
 
@@ -26,9 +26,18 @@ M.ui = {
     theme = "minimal",
     separator_style = "round",
     order = {
-      "mode", "file", "git", "%=",
-      "lsp_msg", "%=", "diagnostics", "encoding",
-      "eol", "lsp", "cwd", "cursor"
+      "mode",
+      "file",
+      "git",
+      "%=",
+      "lsp_msg",
+      "%=",
+      "diagnostics",
+      "encoding",
+      "eol",
+      "lsp",
+      "cwd",
+      "cursor",
     },
     modules = {
       encoding = function()
@@ -43,10 +52,17 @@ M.ui = {
         return " %*" .. encoding .. " "
       end,
       eol = function()
-        if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "terminal" then
+        if
+          vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "terminal"
+        then
           return ""
         end
-        if vim.list_contains({ "help", "terminal", "NvimTree", "nvdash" }, vim.bo.filetype) then
+        if
+          vim.list_contains(
+            { "help", "terminal", "NvimTree", "nvdash" },
+            vim.bo.filetype
+          )
+        then
           return ""
         end
         -- LF, CRLF or CR
