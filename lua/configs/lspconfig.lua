@@ -8,6 +8,7 @@ local servers = {
   "bashls",
   "cmake",
   "marksman",
+  "mesonlsp",
 }
 vim.lsp.enable(servers)
 
