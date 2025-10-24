@@ -35,3 +35,8 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- enable neovide keybind <M>
+if vim.g.neovide then
+  vim.g.neovide_input_macos_option_key_is_meta = "both"
+end
