@@ -10,7 +10,7 @@ require "nvchad.options"
 vim.opt.expandtab = true
 vim.opt.whichwrap = "b,s"
 -- "<font sytle>:<size>"
-vim.opt.guifont = "JetBrainsMono Nerd Font:h16"
+vim.opt.guifont = "Maple Mono NF:h16"
 
 vim.g.copilot_enabled = false
 
