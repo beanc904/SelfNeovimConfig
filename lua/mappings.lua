@@ -3,6 +3,41 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
+local wk = require "which-key"
+
+wk.add {
+  -- rename symbol
+  { "<leader>rn", icon = { icon = "󰑕 ", color = "orange" } },
+  -- diagnostic hover
+  { "<leader>dd", icon = { icon = "🐞", color = "red" } },
+  { "<leader>de", icon = { icon = " ", color = "red" } },
+  { "<leader>dw", icon = { icon = " ", color = "red" } },
+  -- copilot toggle
+  {
+    "<leader>ct",
+    function()
+      require("copilot.command").toggle()
+    end,
+    icon = { icon = " ", color = "orange" },
+    desc = "Toggle copilot (buffer)",
+    mode = { "n", "v" },
+  },
+  {
+    "<leader>cT",
+    function()
+      local is_disabled = require("copilot.client").is_disabled()
+
+      if is_disabled then
+        require("copilot.command").enable()
+      else
+        require("copilot.command").disable()
+      end
+    end,
+    icon = { icon = " ", color = "orange" },
+    desc = "Toggle copilot (global)",
+    mode = { "n", "v" },
+  },
+}
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -95,7 +130,7 @@ end, { desc = "Show warnings only" })
 -- bind inlay hints
 map("n", "<leader>i", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
-end, { desc = "Enable inlay hints" })
+end, { desc = "Toggle inlay hints" })
 
 if vim.g.neovide then
   -- adjust the transparency of the background
@@ -146,3 +181,5 @@ map(
 -- map("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", { desc = "Telescope LSP definitions" })
 -- map("n", "<leader>ti", "<cmd>Telescope lsp_implementations<CR>", { desc = "Telescope LSP implementations" })
 -- map("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Telescope LSP definitions" })
+
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })

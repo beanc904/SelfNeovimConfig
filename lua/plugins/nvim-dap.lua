@@ -18,10 +18,10 @@ return {
         "<leader>da",
         function()
           require "configs.dapconfig"
-          vim.notify "Launche DAP successfully!"
+          vim.notify "Launch DAP successfully!"
           vim.keymap.del("n", "<leader>da")
         end,
-        desc = "Launche DAP",
+        desc = "Launch DAP",
       },
     },
     lazy = true,

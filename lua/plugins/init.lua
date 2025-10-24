@@ -83,4 +83,14 @@ return {
     "xiyaowong/fast-cursor-move.nvim",
     lazy = false,
   },
+
+  {
+    "folke/which-key.nvim",
+    opts = {
+      keys = {
+        scroll_down = "<m-j>", -- binding to scroll down inside the popup
+        scroll_up = "<m-k>", -- binding to scroll up inside the popup
+      },
+    },
+  },
 }

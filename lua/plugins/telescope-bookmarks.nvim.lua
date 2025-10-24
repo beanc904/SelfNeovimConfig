@@ -10,7 +10,7 @@ return {
       {
         "<leader>tb",
         "<cmd>Telescope bookmarks<CR>",
-        desc = "Open Browser Bookmarks",
+        desc = "Telescope Bookmarks",
       },
     },
     config = function()

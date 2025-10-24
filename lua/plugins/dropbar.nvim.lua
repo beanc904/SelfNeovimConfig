@@ -8,6 +8,7 @@ return {
   },
   config = function()
     local dropbar_api = require "dropbar.api"
+    local wk = require "which-key"
     vim.keymap.set(
       "n",
       "<Leader>;",
@@ -26,5 +27,8 @@ return {
       dropbar_api.select_next_context,
       { desc = "Select next context" }
     )
+    wk.add {
+      { "<leader>;", icon = { icon = " ", color = "orange" } },
+    }
   end,
 }
