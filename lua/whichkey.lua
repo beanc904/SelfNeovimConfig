@@ -56,7 +56,7 @@ wk.add {
   },
   {
     "<leader>mc",
-    "<cmd>rm -rf build<CR>",
+    "<cmd>!rm -rf build<CR>",
     icon = { icon = " ", color = "red" },
     desc = "Build clean",
     mode = "n",
