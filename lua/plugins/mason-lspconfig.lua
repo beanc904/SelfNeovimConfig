@@ -11,7 +11,7 @@ return {
         ensure_installed = {
           "clangd",
           "jdtls",
-          "cmake",
+          "neocmake",
           "pyright",
           "rust_analyzer",
           "lua_ls",

@@ -6,7 +6,7 @@ local servers = {
   "cssls",
   "pyright",
   "bashls",
-  "cmake",
+  "neocmake",
   "marksman",
   "mesonlsp",
 }
