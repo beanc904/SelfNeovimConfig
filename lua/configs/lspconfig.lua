@@ -9,6 +9,8 @@ local servers = {
   "neocmake",
   "marksman",
   "mesonlsp",
+  "ts_ls",
+  "html",
 }
 vim.lsp.enable(servers)
 

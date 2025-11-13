@@ -19,6 +19,8 @@ return {
           "marksman",
           "bashls",
           "mesonlsp",
+          "ts_ls",
+          "html",
         },
         automatic_installation = true,
         automatic_enable = false,
