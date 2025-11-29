@@ -10,7 +10,7 @@ local g = vim.g
 
 ---------- opt ----------
 opt.whichwrap = "b,s"
-opt.guifont = "Maple Mono NF:h16"
+opt.guifont = "Maple Mono NF:h12"
 
 ---------- g ----------
 g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
