@@ -11,6 +11,7 @@ local servers = {
   "mesonlsp",
   "ts_ls",
   "html",
+  "glsl_analyzer"
 }
 vim.lsp.enable(servers)
 
