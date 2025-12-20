@@ -11,7 +11,7 @@ local servers = {
   "mesonlsp",
   "ts_ls",
   "html",
-  "glsl_analyzer"
+  "glsl_analyzer",
 }
 vim.lsp.enable(servers)
 
@@ -54,9 +54,32 @@ vim.lsp.config("clangd", {
 
 vim.lsp.config("rust_analyzer", {
   settings = {
-    ["rust_analyzer"] = {
-      check = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+        loadOutDirsFromCheck = true,
+        runBuildScripts = true,
+      },
+      -- Add clippy lints for Rust.
+      checkOnSave = {
+        allFeatures = true,
         command = "clippy",
+        extraArgs = {
+          "--",
+          "--no-deps",
+          "-Wclippy::correctness",
+          "-Wclippy::complexity",
+          "-Wclippy::perf",
+          "-Wclippy::pedantic",
+        },
+      },
+      procMacro = {
+        enable = true,
+        ignored = {
+          ["async-trait"] = { "async_trait" },
+          ["napi-derive"] = { "napi" },
+          ["async-recursion"] = { "async_recursion" },
+        },
       },
     },
   },
