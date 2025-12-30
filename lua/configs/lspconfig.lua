@@ -64,14 +64,14 @@ vim.lsp.config("rust_analyzer", {
       checkOnSave = {
         allFeatures = true,
         command = "clippy",
-        extraArgs = {
-          "--",
-          "--no-deps",
-          "-Wclippy::correctness",
-          "-Wclippy::complexity",
-          "-Wclippy::perf",
-          "-Wclippy::pedantic",
-        },
+        -- extraArgs = {
+        --   "--",
+        --   "--no-deps",
+        --   "-Wclippy::correctness",
+        --   "-Wclippy::complexity",
+        --   "-Wclippy::perf",
+        --   "-Wclippy::pedantic",
+        -- },
       },
       procMacro = {
         enable = true,
