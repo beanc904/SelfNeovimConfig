@@ -48,7 +48,7 @@ vim.lsp.config("clangd", {
     "--header-insertion=never",
     "--header-insertion-decorators=1",
     "--completion-style=detailed",
-    "--fallback-style=Google",
+    "--fallback-style=LLVM",
   },
 })
 
