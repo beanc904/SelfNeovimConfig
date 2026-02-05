@@ -19,6 +19,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    version = "v0.10.0",
     config = function()
       -- set Markdown color and style of H1~6 title
       local heading_colors = {
